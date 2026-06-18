@@ -23,7 +23,6 @@ public class PusherMove : MonoBehaviour
         float z = Mathf.Sin(Time.time * speed) * pusherMoveRenge;
         // ���g�̃��[�J�����W�̈ʒu���@�ŏ��̈ʒu���W�Ɂ@���iSin�g�̕ϓ��l�j�����Z���ĕԂ�
         this.transform.localPosition = startPosition + new Vector3(0, 0, z);
-        rb.linearVelocity = new Vector3(0,0,z);
+        //rb.linearVelocity = new Vector3(0,0,z);
     }
 }
-

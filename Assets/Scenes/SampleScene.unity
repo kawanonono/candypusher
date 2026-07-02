@@ -2289,6 +2289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1580112546}
   - component: {fileID: 1580112547}
+  - component: {fileID: 1580112548}
   m_Layer: 0
   m_Name: createcandy
   m_TagString: Untagged
@@ -2305,7 +2306,7 @@ Transform:
   m_GameObject: {fileID: 1580112545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3120899, y: 6.29902, z: -2.31098}
+  m_LocalPosition: {x: -1.3120899, y: 6.24, z: -2.31098}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2323,9 +2324,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d3f233ebc05f041b960cf65c9b79b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::createcandy
-  CandyPrefab: {fileID: 7580983101785254295, guid: 8e6b6c16b8458e14b8289877d22d0ef5, type: 3}
-  speed: 1
-  CreateCandyMoveRenge: 5
+  CandyPrefab: {fileID: 7580983101785254295, guid: ab90df63d95edc24ba1b83573274425e, type: 3}
+  CandyPrefabs:
+  - {fileID: 7580983101785254295, guid: 8e6b6c16b8458e14b8289877d22d0ef5, type: 3}
+  - {fileID: 7580983101785254295, guid: ab90df63d95edc24ba1b83573274425e, type: 3}
+  - {fileID: 7580983101785254295, guid: 5abc8ce561a0d0a46a170fd5262aa135, type: 3}
+--- !u!114 &1580112548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580112545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afa0d3c1cb4e264f9b1fecbb2d75fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveCreatePosition
 --- !u!1001 &1619938105
 PrefabInstance:
   m_ObjectHideFlags: 0

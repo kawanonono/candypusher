@@ -8,6 +8,7 @@ public class createcandy : MonoBehaviour
     public GameObject CandyPrefab;
     //GameObjectの配列を作成
     public GameObject[] CandyPrefabs;
+    public AudioManager audioManager;
 
     // 課題のとこ
     //public float speed = 1.0f;
@@ -16,6 +17,7 @@ public class createcandy : MonoBehaviour
 
     void AddCandy()
     {
+        audioManager.SEPlay();
         // ここに処理が入る
         // 2＋1の結果をCandyCountに格納する
         CandyCount = CandyCount + 1;

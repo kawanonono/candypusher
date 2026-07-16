@@ -3,23 +3,21 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioSource secondAudioSource;
-    public AudioClip[] seAudioClips;
+    private AudioSource seAudioSource;
+    public AudioClip[] audioClips;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void SEPlay()
+    public void SEPlay(int i)
     {
-        audioSource.clip = seAudioClips[0];
-        if (audioSource.isPlaying == false)
+        // AddGomponent<Component–¼>();
+        if (seAudioSource == null)
         {
-            audioSource.Play();
+            seAudioSource = this.gameObject.AddComponent<AudioSource>();
         }
-        else
-        {
-            secondAudioSource.clip = seAudioClips[0];
-            secondAudioSource.Play();
-        }
-            audioSource.Play();
+        // se—p‚ÌAudioSource ‚É se‰¹Œ¹”z—ñ‚Ì0”Ô–Ú‚ð“n‚·
+        seAudioSource.clip = audioClips[i];
+        seAudioSource.Play();
+
     }
 
     // Update is called once per frame
@@ -27,4 +25,25 @@ public class AudioManager : MonoBehaviour
     {
 
     }
+
+    private AudioSource bgmaudioSource;
+    public AudioClip[] bgmaudioClips;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public void BGMPlay()
+    {
+        {
+            bgmaudioSource = this.gameObject.AddComponent<AudioSource>();
+        }
+
+        bgmaudioSource.clip = bgmaudioClips[0];
+        bgmaudioSource.Play();
+        bgmaudioSource.loop = true;
+    }
+    
+    private void Start()
+    {
+        BGMPlay();
+    }
+
+    // Update is called once per frame
 }

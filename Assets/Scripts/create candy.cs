@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,14 +11,16 @@ public class createcandy : MonoBehaviour
     public GameObject[] CandyPrefabs;
     public AudioManager audioManager;
 
+    float time = 0f;
+
     // 課題のとこ
     //public float speed = 1.0f;
     //public float CreateCandyMoveRenge = 4.0f;
     //private Vector3 startPosition;
 
-    void AddCandy()
+    public void AddCandy()
     {
-        audioManager.SEPlay();
+        AudioManager.instance.SEPlay(1);
         // ここに処理が入る
         // 2＋1の結果をCandyCountに格納する
         CandyCount = CandyCount + 1;

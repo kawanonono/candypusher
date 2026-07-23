@@ -8,11 +8,11 @@ public class StageOut : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     // このコードをアタッチしたオブジェクトに他のオブジェクトがすり抜けた時に呼ばれる
-    public AudioManager audioManager;
+
     void OnTriggerEnter(Collider other)
     //　アクセス修飾子　型　変数名　；
     {
-        audioManager.SEPlay();
+        AudioManager.instance.SEPlay(0);
         Score += 1;
 
     //変数scoreTxstのtxstプロパティ（文字を表示する機能）に

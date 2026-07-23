@@ -1,8 +1,21 @@
 using UnityEngine;
+using TMPro;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource audioSource;
+    public static AudioManager instance;
+    private void Awake()
+    {
+        if (instance == null) 
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private AudioSource seAudioSource;
     public AudioClip[] audioClips;
 
@@ -26,18 +39,18 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    private AudioSource bgmaudioSource;
-    public AudioClip[] bgmaudioClips;
+    private AudioSource bgmAudioSource;
+    public AudioClip[] bgmAudioClips;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void BGMPlay()
     {
         {
-            bgmaudioSource = this.gameObject.AddComponent<AudioSource>();
+            bgmAudioSource = this.gameObject.AddComponent<AudioSource>();
         }
 
-        bgmaudioSource.clip = bgmaudioClips[0];
-        bgmaudioSource.Play();
-        bgmaudioSource.loop = true;
+        bgmAudioSource.clip = bgmAudioClips[0];
+        bgmAudioSource.Play();
+        bgmAudioSource.loop = true;
     }
     
     private void Start()

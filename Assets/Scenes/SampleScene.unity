@@ -943,7 +943,6 @@ GameObject:
   - component: {fileID: 519667581}
   - component: {fileID: 519667580}
   - component: {fileID: 519667579}
-  - component: {fileID: 519667583}
   - component: {fileID: 519667584}
   m_Layer: 0
   m_Name: Pusher
@@ -1040,25 +1039,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 6.22}
-  m_LocalScale: {x: 7, y: 1, z: 9}
+  m_LocalScale: {x: 2, y: 1, z: 9}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519667583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519667578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92634d741cefb244e88426c8738b5caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PusherMove
-  speed: 1
-  pusherMoveRenge: 5
 --- !u!54 &519667584
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1320,6 +1305,7 @@ GameObject:
   - component: {fileID: 840670219}
   - component: {fileID: 840670218}
   - component: {fileID: 840670217}
+  - component: {fileID: 840670221}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1410,6 +1396,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &840670221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840670216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acafc3ab6c818624aa36304bc651ff25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuserController
+  minX: -2.5
+  maxX: 2.5
+  moveSpeed: 5
+  pushDistance: 1.2
+  pushSpeed: 3
 --- !u!1 &864405891 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: f2beb3c7f93196540bcbffa9a4a19635, type: 3}
@@ -1767,7 +1770,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::steadeout
   scoreText: {fileID: 419357312}
-  audioManager: {fileID: 1734148409}
 --- !u!65 &1312724352
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2605,12 +2607,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e9679f0652481439da7d16ea204621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Audiomanager
-  audioSource: {fileID: 0}
-  secondAudioSource: {fileID: 0}
-  seAudioClips:
+  audioClips:
+  - {fileID: 8300000, guid: d32f9e9c5a5c68e44977c39ed2239659, type: 3}
+  - {fileID: 8300000, guid: a78953c177eed07439549cb5721b4476, type: 3}
   - {fileID: 8300000, guid: 972a6c67f2adcba4aa9f11b89d81cd3e, type: 3}
-  bgmaudioSource: {fileID: 0}
-  bgmaudioClips:
+  - {fileID: 8300000, guid: c4ac27b835bbc004baa6285c7dd93d3d, type: 3}
+  - {fileID: 8300000, guid: e8e1f33c88367744d90ed7a05947c088, type: 3}
+  bgmAudioClips:
   - {fileID: 8300000, guid: 944fad7493182514abbaca6c662bd7a6, type: 3}
 --- !u!1 &1760109490
 GameObject:

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PuserController : MonoBehaviour
+public class PusherController : MonoBehaviour
 {
     [Header("左右移動")]
     [SerializeField] private float minX = -2.5f;
@@ -12,67 +12,103 @@ public class PuserController : MonoBehaviour
     [SerializeField] private float pushSpeed = 3f;
 
     private Vector3 startPosition;
+
     private bool isPushing = false;
-    private float targetZ;
+    private bool isReturning = false;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         startPosition = transform.position;
-        targetZ = startPosition.z;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // PCでのテスト用
-        float horizontal = Input.GetAxis("Horizontal");
+        // =========================
+        // 左右移動
+        // =========================
 
-        Vector3 position = transform.position;
-
-        position.x += horizontal * moveSpeed * Time.deltaTime;
-
-        // 左右の移動範囲を制限
-        position.x = Mathf.Clamp(position.x, minX, maxX);
-
-        // 前進中でなければ左右操作可能
-        if (!isPushing)
+        if (!isPushing && !isReturning)
         {
+            float horizontal = Input.GetAxis("Horizontal");
+
+            Vector3 position = transform.position;
+
+            position.x += horizontal * moveSpeed * Time.deltaTime;
+
+            position.x = Mathf.Clamp(
+                position.x,
+                minX,
+                maxX
+            );
+
             transform.position = position;
         }
 
-        // 前進処理
+        // =========================
+        // 前進
+        // =========================
+
         if (isPushing)
         {
-            float newZ = Mathf.MoveTowards(
-                transform.position.z,
+            float targetZ = startPosition.z + pushDistance;
+
+            Vector3 position = transform.position;
+
+            position.z = Mathf.MoveTowards(
+                position.z,
                 targetZ,
                 pushSpeed * Time.deltaTime
             );
 
-            transform.position = new Vector3(
-                transform.position.x,
-                transform.position.y,
-                newZ
-            );
+            transform.position = position;
 
-            // 前進が終了したら元の位置へ戻す
-            if (Mathf.Abs(transform.position.z - targetZ) < 0.01f)
+            // 前進終了
+            if (Mathf.Abs(position.z - targetZ) < 0.01f)
             {
                 isPushing = false;
-                targetZ = startPosition.z;
+                isReturning = true;
+            }
+        }
+
+        // =========================
+        // 元の位置に戻る
+        // =========================
+
+        if (isReturning)
+        {
+            Vector3 position = transform.position;
+
+            position.z = Mathf.MoveTowards(
+                position.z,
+                startPosition.z,
+                pushSpeed * Time.deltaTime
+            );
+
+            transform.position = position;
+
+            // 戻る処理終了
+            if (Mathf.Abs(position.z - startPosition.z) < 0.01f)
+            {
+                position.z = startPosition.z;
+
+                transform.position = position;
+
+                isReturning = false;
             }
         }
     }
 
-    // 「おす！」ボタンから呼び出す
+    // =========================
+    // 「おす！」ボタン
+    // =========================
+
     public void Push()
     {
-        if (isPushing)
+        if (isPushing || isReturning)
             return;
 
-        targetZ = startPosition.z + pushDistance;
         isPushing = true;
+
+        Debug.Log("プッシャーを押しました！");
     }
 }

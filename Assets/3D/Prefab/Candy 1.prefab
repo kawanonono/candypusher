@@ -70,6 +70,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: f2beb3c7f93196540bcbffa9a4a19635, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8859581481132658715}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: f2beb3c7f93196540bcbffa9a4a19635, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7453675662269965360}
   m_SourcePrefab: {fileID: 100100000, guid: f2beb3c7f93196540bcbffa9a4a19635, type: 3}
 --- !u!1 &7580983101785254295 stripped
 GameObject:
@@ -124,3 +127,16 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.0019531, y: 1.0019531, z: 1.0019531}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7453675662269965360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580983101785254295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2155e6f0496e2ce4e9c4b1aef4e03532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Candy
+  score: -50

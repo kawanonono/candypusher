@@ -37,7 +37,7 @@ public class createcandy : MonoBehaviour
         {
             candyType = 0;
         }
-        else if (rand < 80)
+        else if (rand < 40)
         {
             candyType = 1;
         }
